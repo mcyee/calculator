@@ -1,3 +1,3 @@
 # Calculator
 
-This is a basic calculator written from scratch.
+This is a basic calculator application written from scratch.
