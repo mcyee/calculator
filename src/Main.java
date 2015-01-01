@@ -16,9 +16,12 @@ public class Main {
 		ArrayDeque<Expression> exprList = new ArrayDeque<Expression>();
 		Scanner scan = new Scanner(System.in);
 		
-		while (scan.hasNext() && !scan.next().equals("EOF"))
+		while (scan.hasNext())
 		{
 			String s = scan.next();
+			
+			if (s.equals("EOF")) break;
+		
 			char c = s.charAt(0);
 			
 			// loneint
@@ -35,13 +38,12 @@ public class Main {
 			}
 			else // unaryop
 			{
-				//TODO finish this
+				Expression last = exprList.pop();
+				exprList.push(new UnaryOp(s, last));
 			}
 		}
 		
 		scan.close();
-		
 		System.out.println(exprList.peek().evaluate());
 	}
-
 }

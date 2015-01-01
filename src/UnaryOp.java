@@ -23,8 +23,19 @@ public class UnaryOp extends Expression {
 	@Override
     public String prettyprint()
 	{
-		// TODO finish this
-		return "";
+		String printedOper = operand.prettyprint();
+		
+		if (unaryOper.equals("NEG"))
+		{
+			if (printedOper.charAt(0) == '-')
+				return printedOper.substring(1);
+			else
+				return "-" + printedOper;
+		}
+		else // unaryOper.equals("ABS")
+		{
+			return "|" + printedOper + "|";
+		}
 	}
 	
 	/**
@@ -33,8 +44,23 @@ public class UnaryOp extends Expression {
 	@Override
     public int evaluate()
 	{
-		// TODO finish this
-		return 0;
+		int evalOper = operand.evaluate();
+		
+		if (unaryOper.equals("NEG"))
+		{
+			return evalOper * -1;
+		}
+		else // unaryOper.equals("ABS")
+		{
+			if (evalOper < 0)
+			{
+				return evalOper * -1;
+			}
+			else
+			{
+				return evalOper;
+			}
+		}
 	}
 
 }
