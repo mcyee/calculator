@@ -11,8 +11,7 @@ public class BinaryOp extends Expression {
 	private Expression leftOperand;
 	private Expression rightOperand;
 	
-	public BinaryOp(String oper, Expression left, Expression right)
-	{
+	public BinaryOp(String oper, Expression left, Expression right) {
 		super();
 		binaryOper = oper;
 		leftOperand = left;
@@ -23,8 +22,7 @@ public class BinaryOp extends Expression {
 	 * prettyprint() returns Expression in a nice format
 	 */
 	@Override
-    public String prettyprint()
-	{
+	public String prettyprint() {
 		return "(" + leftOperand.prettyprint() + binaryOper
 		       + rightOperand.prettyprint() + ")";
 	}
@@ -33,23 +31,29 @@ public class BinaryOp extends Expression {
 	 * evaluate() returns the actual value of the Expression
 	 */
 	@Override
-    public int evaluate()
-	{
-		//TODO check for divide by zero
+	public int evaluate() {
 		int value = 0;
 		
 		switch (binaryOper) {
-			case "+":
+			case "+": // addition
 				value = leftOperand.evaluate() + rightOperand.evaluate();
 				break;
-			case "-":
+			case "-": // subtraction
 				value = leftOperand.evaluate() - rightOperand.evaluate();
 				break;
-			case "*":
+			case "*": // multiplication
 				value = leftOperand.evaluate() * rightOperand.evaluate();
 				break;
-			default: // "/"
-				value = leftOperand.evaluate() / rightOperand.evaluate();
+			default: // "/" division
+				try {
+					if (rightOperand.evaluate() == 0) {
+						throw new ArithmeticException();
+					}
+					value = leftOperand.evaluate() / rightOperand.evaluate();
+				}
+				catch (ArithmeticException e) {
+					System.out.println("Cannot divide by zero");
+				}
 				break;
 		}
 		
