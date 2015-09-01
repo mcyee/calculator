@@ -2,7 +2,8 @@
  * Project: Calculator
  * Author: Ming-Cee Yee
  * Created: Dec 23, 2014
- * Description: 
+ * Description: Representation of a binary operation (addition, subtraction,
+ *              multiplication, division)
  */
 
 public class BinaryOp extends Expression {

@@ -2,7 +2,7 @@
  * Project: Calculator
  * Author: Ming-Cee Yee
  * Created: Dec 23, 2014
- * Description: 
+ * Description: Representation of a unary operation (negation, absolute value)
  */
 
 public class UnaryOp extends Expression {

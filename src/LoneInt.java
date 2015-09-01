@@ -2,7 +2,7 @@
  * Project: Calculator
  * Author: Ming-Cee Yee
  * Created: Dec 23, 2014
- * Description: 
+ * Description: Representation of an integer term.
  */
 
 public class LoneInt extends Expression {
