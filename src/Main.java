@@ -40,7 +40,7 @@ public class Main {
 		/**
 		 * Reverse Polish notation parsing
 		 */
-		
+		//TODO finish processing rpn
 		// list of Expression trees
 		ArrayList<Expression> expressions = new ArrayList<Expression>();
 		for (InfixExpr ie : infixExpressions) {
