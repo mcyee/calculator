@@ -23,7 +23,7 @@ public class Main {
 		 * assumes each line of the file is a full, correct expression
 		 */
 		try {
-			scan = new Scanner(new BufferedReader(new FileReader("input.txt")));
+			scan = new Scanner(new BufferedReader(new FileReader("../tst/input1.txt")));
 			
 			while (scan.hasNext()) {
 				//TODO fix stuff
@@ -51,6 +51,9 @@ public class Main {
 		/**
 		 * Print evaluation (calculated value) of given expression
 		 */
+		for (Expression e : expressions) {
+			System.out.println(e.prettyprint()+ " = " + e.evaluate());
+		}
 //		System.out.println(exprList.peek().evaluate());
 	}
 }
