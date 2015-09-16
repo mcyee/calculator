@@ -26,10 +26,11 @@ public class RPNExpr {
 		while (st.hasMoreTokens()) {
 			String s = st.nextToken();
 			char c = s.charAt(0);
-			
-			// push LoneInt on the stack
-			if (('0' <= c && c <= '9') || c == '-') {
-				exprList.push(new LoneInt(Integer.parseInt(s)));
+
+			// push UnaryOp on the stack
+			if (c == 'N' || c == 'A') {
+				Expression last = exprList.pop();
+				exprList.push(new UnaryOp(s, last));
 			}
 			// push BinaryOp on the stack
 			else if (c == '+' || c == '-' || c == '*' || c == '/') {
@@ -37,10 +38,9 @@ public class RPNExpr {
 				Expression left = exprList.pop();
 				exprList.push(new BinaryOp(s, left, right));
 			}
-			// push UnaryOp on the stack
+			// push LoneInt on the stack
 			else {
-				Expression last = exprList.pop();
-				exprList.push(new UnaryOp(s, last));
+				exprList.push(new LoneInt(Integer.parseInt(s)));
 			}
 		}
 		
