@@ -5,6 +5,8 @@
  * Description: Representation of a unary operation (negation, absolute value)
  */
 
+package com.skysketches.calculator;
+
 public class UnaryOp extends Expression {
 
 	private String unaryOper;

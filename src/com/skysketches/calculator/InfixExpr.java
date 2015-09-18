@@ -8,6 +8,8 @@
  *             http://eddmann.com/posts/shunting-yard-implementation-in-java/
  */
 
+package com.skysketches.calculator;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;

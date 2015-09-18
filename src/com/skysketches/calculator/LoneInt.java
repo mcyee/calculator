@@ -5,6 +5,8 @@
  * Description: Representation of an integer term.
  */
 
+package com.skysketches.calculator;
+
 public class LoneInt extends Expression {
 
 	private int number;

@@ -5,6 +5,8 @@
  * Description: Representation of a mathematical expression.
  */
 
+package com.skysketches.calculator;
+
 public abstract class Expression {
 	abstract String prettyprint(); // returns Expression in a nice format
 	abstract int evaluate(); // returns the actual value of the Expression

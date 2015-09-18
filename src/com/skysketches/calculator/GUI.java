@@ -1,6 +1,14 @@
+/**
+ * Project: Calculator
+ * Author: Tristan Ohlson
+ * Created: Sep 16, 2015
+ * Description:
+ */
+
+package com.skysketches.calculator;
+
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 
 public class GUI extends Frame {
 	public GUI() {
@@ -176,7 +184,7 @@ public class GUI extends Frame {
 		setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		new GUI();
-	}
+//	public static void main(String[] args) {
+//		new GUI();
+//	}
 }

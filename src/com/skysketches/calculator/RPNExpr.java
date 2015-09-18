@@ -5,6 +5,8 @@
  * Description: Representation of an expression in reverse polish notation
  */
 
+package com.skysketches.calculator;
+
 import java.util.ArrayDeque;
 import java.util.StringTokenizer;
 

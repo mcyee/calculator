@@ -6,6 +6,8 @@
  *              multiplication, division)
  */
 
+package com.skysketches.calculator;
+
 public class BinaryOp extends Expression {
 
 	private String binaryOper;
