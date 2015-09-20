@@ -63,6 +63,7 @@ public class GUI extends Application {
     	TextField display = new TextField();
     	grid.add(display, 0, 1, 4, 1);
     	
+		
 		Button clear = new Button("C");
     	clear.setMinSize(50, 50);
     	HBox hbclear = new HBox(10);
@@ -159,12 +160,8 @@ public class GUI extends Application {
     	digit2.setMinSize(50, 50);
     	HBox hbdigit2 = new HBox(20);
     	hbdigit2.setAlignment(Pos.BOTTOM_RIGHT);
-		
     	hbdigit2.getChildren().add(digit2);
     	grid.add(hbdigit2, 1, 5);
-
-    	hbdigit2.getChildren().add(digit2);
-    	grid.add(hbdigit2, 1, 4);
     	
     	Button digit3 = new Button("3");
     	digit3.setMinSize(50, 50);
