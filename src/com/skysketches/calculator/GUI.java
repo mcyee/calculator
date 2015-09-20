@@ -133,7 +133,7 @@ public class GUI extends Application {
     	digit2.setMinSize(50, 50);
     	HBox hbdigit2 = new HBox(20);
     	hbdigit2.setAlignment(Pos.BOTTOM_RIGHT);
-    	hbdigit2.getChildren().add(digit2);
+    	hbdigit2.getChildren().add(digit2);//
     	grid.add(hbdigit2, 1, 4);
     	
     	Button digit3 = new Button("3");
