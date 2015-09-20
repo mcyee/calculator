@@ -63,7 +63,6 @@ public class GUI extends Application {
     	TextField display = new TextField();
     	grid.add(display, 0, 1, 4, 1);
     	
-		    	
 		Button clear = new Button("C");
     	clear.setMinSize(50, 50);
     	HBox hbclear = new HBox(10);
@@ -92,22 +91,21 @@ public class GUI extends Application {
     	hbdivide.getChildren().add(divide);
     	grid.add(hbdivide, 3, 2);
 		
-    	
-    	Button digit7 = new Button("7");
+		Button digit7 = new Button("7");
     	digit7.setMinSize(50, 50);
     	HBox hbdigit7 = new HBox(10);
     	hbdigit7.setAlignment(Pos.BOTTOM_RIGHT);
     	hbdigit7.getChildren().add(digit7);
     	grid.add(hbdigit7, 0, 3);
     	
-    	Button digit8 = new Button("8");
+		Button digit8 = new Button("8");
     	digit8.setMinSize(50, 50);
     	HBox hbdigit8 = new HBox(10);
     	hbdigit8.setAlignment(Pos.BOTTOM_RIGHT);
     	hbdigit8.getChildren().add(digit8);
     	grid.add(hbdigit8, 1, 3);
     	
-    	Button digit9 = new Button("9");
+		Button digit9 = new Button("9");
     	digit9.setMinSize(50, 50);
     	HBox hbdigit9 = new HBox(10);
     	hbdigit9.setAlignment(Pos.BOTTOM_RIGHT);
@@ -120,9 +118,8 @@ public class GUI extends Application {
     	hbmultiply.setAlignment(Pos.BOTTOM_RIGHT);
     	hbmultiply.getChildren().add(multiply);
     	grid.add(hbmultiply, 3, 3);
-    	
-    	
-    	Button digit4 = new Button("4");
+		
+		Button digit4 = new Button("4");
     	digit4.setMinSize(50, 50);
     	HBox hbdigit4 = new HBox(10);
     	hbdigit4.setAlignment(Pos.BOTTOM_RIGHT);
@@ -142,7 +139,7 @@ public class GUI extends Application {
     	hbdigit6.setAlignment(Pos.BOTTOM_RIGHT);
     	hbdigit6.getChildren().add(digit6);
     	grid.add(hbdigit6, 2, 4);
-
+		
 		Button subtract = new Button("-");
     	subtract.setMinSize(50, 50);
     	HBox hbsubtract = new HBox(30);
