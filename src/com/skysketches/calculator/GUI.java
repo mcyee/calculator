@@ -7,184 +7,155 @@
 
 package com.skysketches.calculator;
 
-import java.awt.*;
-import java.awt.event.*;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 
-public class GUI extends Frame {
-	public GUI() {
-		setTitle("Calculator");
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints gbc = new GridBagConstraints();
+public class GUI extends Application {
+	
+	@Override
+    public void start(Stage primaryStage) {
+    	primaryStage.setTitle("Calculator");
 
-		setLayout(gridbag);
+    	//Set layout properties
+    	GridPane grid = new GridPane();
+    	grid.setAlignment(Pos.CENTER);
+    	grid.setHgap(10);
+    	grid.setVgap(10);
+    	grid.setPadding(new Insets(15, 15, 15, 15));
 
-		//So the window will close when we click exit
-		addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent windowEvent) {
-				System.exit(0);
-			}
-		});
-
-		setSize(400,400);
-
-		//
-		gbc.weightx = 1.0;
-		gbc.weighty = 1.0;
-
-		/*
-		 * DISPLAY LABEL
-		 */
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.gridwidth = 4;
-		TextField display = new TextField("Display here :^)");
-		gridbag.setConstraints(display, gbc);
-		add(display);
-
-		gbc.gridwidth = 1;
+    	Scene scene = new Scene(grid, 300, 300);
+    	primaryStage.setScene(scene);
+    	
+    	//Load CSS
+    	scene.getStylesheets().add(this.getClass().getResource("GUI.css").toExternalForm());
+    	
+    	Button infix = new Button("Infix");
+    	infix.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+    	HBox hbinfix = new HBox(10);
+    	hbinfix.setAlignment(Pos.BOTTOM_LEFT);
+    	hbinfix.getChildren().add(infix);
+    	grid.add(hbinfix, 0, 0);
+    	
+    	Button rpn = new Button("RPN");
+    	rpn.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+    	infix.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+    	HBox hbrpn = new HBox(10);
+    	hbrpn.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbrpn.getChildren().add(rpn);
+    	grid.add(hbrpn, 3, 0);
+    	
+    	TextField display = new TextField();
+    	grid.add(display, 0, 1, 4, 1);
+    	
+    	
+    	Button digit7 = new Button("7");
+    	digit7.setMinSize(50, 50);
+    	HBox hbdigit7 = new HBox(10);
+    	hbdigit7.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit7.getChildren().add(digit7);
+    	grid.add(hbdigit7, 0, 2);
+    	
+    	Button digit8 = new Button("8");
+    	digit8.setMinSize(50, 50);
+    	HBox hbdigit8 = new HBox(10);
+    	hbdigit8.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit8.getChildren().add(digit8);
+    	grid.add(hbdigit8, 1, 2);
+    	
+    	Button digit9 = new Button("9");
+    	digit9.setMinSize(50, 50);
+    	HBox hbdigit9 = new HBox(10);
+    	hbdigit9.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit9.getChildren().add(digit9);
+    	grid.add(hbdigit9, 2, 2);
 		
-		/*
-		 * FIRST ROW OF BUTTONS
-		 */
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		Button clear = new Button("Clear");
-		gridbag.setConstraints(clear, gbc);
-		add(clear);
-
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		Button backspace = new Button("Backspace");
-		gridbag.setConstraints(backspace, gbc);
-		add(backspace);
-
-		gbc.gridx = 2;
-		gbc.gridy = 1;
-		Button abs = new Button("Abs");
-		gridbag.setConstraints(abs, gbc);
-		add(abs);
-
-		gbc.gridx = 3;
-		gbc.gridy = 1;
 		Button divide = new Button("/");
-		gridbag.setConstraints(divide, gbc);
-		add(divide);
-
-		/*
-		 * SECOND ROW OF BUTTONS
-		 */
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		Button digit7 = new Button("7");
-		gridbag.setConstraints(digit7, gbc);
-		add(digit7);
-
-		gbc.gridx = 1;
-		gbc.gridy = 2;
-		Button digit8 = new Button("8");
-		gridbag.setConstraints(digit8, gbc);
-		add(digit8);
-
-		gbc.gridx = 2;
-		gbc.gridy = 2;
-		Button digit9 = new Button("9");
-		gridbag.setConstraints(digit9, gbc);
-		add(digit9);
-
-		gbc.gridx = 3;
-		gbc.gridy = 2;
+    	divide.setMinSize(50, 50);
+    	HBox hbdivide = new HBox(10);
+    	hbdivide.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdivide.getChildren().add(divide);
+    	grid.add(hbdivide, 3, 2);
+    	
+    	
+    	Button digit4 = new Button("4");
+    	digit4.setMinSize(50, 50);
+    	HBox hbdigit4 = new HBox(10);
+    	hbdigit4.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit4.getChildren().add(digit4);
+    	grid.add(hbdigit4, 0, 3);
+    	
+    	Button digit5 = new Button("5");
+    	digit5.setMinSize(50, 50);
+    	HBox hbdigit5 = new HBox(10);
+    	hbdigit5.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit5.getChildren().add(digit5);
+    	grid.add(hbdigit5, 1, 3);
+    	
+    	Button digit6 = new Button("6");
+    	digit6.setMinSize(50, 50);
+    	HBox hbdigit6 = new HBox(10);
+    	hbdigit6.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit6.getChildren().add(digit6);
+    	grid.add(hbdigit6, 2, 3);
+    	
 		Button multiply = new Button("*");
-		gridbag.setConstraints(multiply, gbc);
-		add(multiply);
-
-		/*
-		 * THIRD ROW OF BUTTONS
-		 */
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		Button digit4 = new Button("4");
-		gridbag.setConstraints(digit4, gbc);
-		add(digit4);
-
-		gbc.gridx = 1;
-		gbc.gridy = 3;
-		Button digit5 = new Button("5");
-		gridbag.setConstraints(digit5, gbc);
-		add(digit5);
-
-		gbc.gridx = 2;
-		gbc.gridy = 3;
-		Button digit6 = new Button("6");
-		gridbag.setConstraints(digit6, gbc);
-		add(digit6);
-
-		gbc.gridx = 3;
-		gbc.gridy = 3;
+    	multiply.setMinSize(50, 50);
+    	HBox hbmultiply = new HBox(10);
+    	hbmultiply.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbmultiply.getChildren().add(multiply);
+    	grid.add(hbmultiply, 3, 3);
+		
+    	
+    	Button digit1 = new Button("1");
+    	digit1.setMinSize(50, 50);
+    	HBox hbdigit1 = new HBox(10);
+    	hbdigit1.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit1.getChildren().add(digit1);
+    	grid.add(hbdigit1, 0, 4);
+    	
+    	Button digit2 = new Button("2");
+    	digit2.setMinSize(50, 50);
+    	HBox hbdigit2 = new HBox(20);
+    	hbdigit2.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit2.getChildren().add(digit2);
+    	grid.add(hbdigit2, 1, 4);
+    	
+    	Button digit3 = new Button("3");
+    	digit3.setMinSize(50, 50);
+    	HBox hbdigit3 = new HBox(30);
+    	hbdigit3.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbdigit3.getChildren().add(digit3);
+    	grid.add(hbdigit3, 2, 4);
+		
 		Button subtract = new Button("-");
-		gridbag.setConstraints(subtract, gbc);
-		add(subtract);
+    	subtract.setMinSize(50, 50);
+    	HBox hbsubtract = new HBox(30);
+    	hbsubtract.setAlignment(Pos.BOTTOM_RIGHT);
+    	hbsubtract.getChildren().add(subtract);
+    	grid.add(hbsubtract, 3, 4);
+		
+		
+		
+        primaryStage.show();
+    }
 
-		/*
-		 * FOURTH ROW OF BUTTONS
-		 */
-		gbc.gridx = 0;
-		gbc.gridy = 4;
-		Button digit1 = new Button("1");
-		gridbag.setConstraints(digit1, gbc);
-		add(digit1);
-
-		gbc.gridx = 1;
-		gbc.gridy = 4;
-		Button digit2 = new Button("2");
-		gridbag.setConstraints(digit2, gbc);
-		add(digit2);
-
-		gbc.gridx = 2;
-		gbc.gridy = 4;
-		Button digit3 = new Button("3");
-		gridbag.setConstraints(digit3, gbc);
-		add(digit3);
-
-		gbc.gridx = 3;
-		gbc.gridy = 4;
-		Button plus = new Button("+");
-		gridbag.setConstraints(plus, gbc);
-		add(plus);
-
-		/*
-		 * FIFTH ROW OF BUTTONS
-		 */
-		gbc.gridx = 0;
-		gbc.gridy = 5;
-		Button digit0 = new Button("0");
-		gridbag.setConstraints(digit0, gbc);
-		add(digit0);
-
-		gbc.gridx = 1;
-		gbc.gridy = 5;
-		Button decimal = new Button(".");
-		gridbag.setConstraints(decimal, gbc);
-		add(decimal);
-
-		gbc.gridx = 2;
-		gbc.gridy = 5;
-		Button ans = new Button("Ans");
-		gridbag.setConstraints(ans, gbc);
-		add(ans);
-
-		gbc.gridx = 3;
-		gbc.gridy = 5;
-		Button equals = new Button("=");
-		gridbag.setConstraints(equals, gbc);
-		add(equals);
-
-
-		setVisible(true);
+	public static void main(String[] args) {
+		launch(args);
 	}
-
-//	public static void main(String[] args) {
-//		new GUI();
-//	}
 }
