@@ -18,7 +18,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		ArrayList<InfixExpr> infixExpressions = new ArrayList<InfixExpr>(); // list of expressions
-		File file = File("/tst/input1.txt");
+		File file = new File("/tst/input1.txt");
 		
 		/**
 		 * reads file
