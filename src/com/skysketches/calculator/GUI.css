@@ -1,15 +1,15 @@
 .button {
-    -fx-font-size: 15;
-    -fx-text-fill: black;
-    -fx-font-family: "Arial Narrow";
-    -fx-font-weight: bold;
-    -fx-background-color: rgb(244,244,244);
+	-fx-font-size: 15;
+	-fx-text-fill: black;
+	-fx-font-family: "Arial Narrow";
+	-fx-font-weight: bold;
+	-fx-background-color: rgb(244,244,244);
 }
 
 .button:hover {
-    -fx-background-color: rgb(220,220,220);
+	-fx-background-color: rgb(220,220,220);
 }
 
 .button:pressed {
-    -fx-background-color: rgb(200,200,200);
+	-fx-background-color: rgb(200,200,200);
 }
